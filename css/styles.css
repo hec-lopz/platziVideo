@@ -1,0 +1,74 @@
+body, html, h1, h2, p, figure {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Lato', sans-serif;
+}
+.grid-layout {
+  display: grid;
+  grid-template-columns: 300px 1.2fr .8fr;
+  grid-template-rows: 2fr .5fr 2fr;
+  grid-template-areas:   	"sidebar player player"
+     						"sidebar description description"
+     						"sidebar comments suggestions" ;
+}
+
+/* Empieza SideBar */
+.side-bar {
+  grid-area: sidebar;
+  height: 100vh;
+  background-color: #000033;
+  color: white;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.logo {
+	font-size: 34px;
+	font-family: 'Mitr', sans-serif;
+	margin-bottom: 30px;
+}
+.logo span {
+	color: rgb(255,0,5);
+}
+
+.song-name {
+	margin-bottom: 10px;
+}
+.friend-list {
+	list-style: none;
+	padding-left: 20px;
+}
+.profile-container {
+	/* border: 1px solid red; */
+	border-radius: 100px;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.profile-container img {
+width: 50px;
+object-fit: cover;
+}
+.friend-list li{
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+}
+/* Termina SideBar */
+
+.video-container {
+  grid-area: player;
+}
+
+.description-box {
+  grid-area: description;
+}
+
+.comment-box{
+  grid-area: comments;
+
+}
+
+.comment-box{
+  grid-area: suggestions;
+}
