@@ -13,7 +13,7 @@
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Platzivideo' !important;
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -36,7 +36,7 @@
 }
 
 
-body, html, h1, h2, p, figure {
+body, html, h1, h2, h3, p, figure {
   margin: 0;
   padding: 0;
 }
@@ -87,10 +87,11 @@ body {
 	padding-left: 20px;
 }
 .profile-container {
-	/* border: 1px solid red; */
+	border: 1px solid #000033;
 	border-radius: 50%;
 	overflow: hidden;
-	margin-right: 10px;
+  margin-right: 10px;
+  background-color: black;
 }
 .profile-container img {
 width: 50px;
@@ -135,7 +136,6 @@ object-fit: cover;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  wi
 }
 .actions {
   margin-top: 5px;
@@ -154,6 +154,7 @@ object-fit: cover;
   background: linear-gradient(90deg, rgba(255,0,5,1) 0%, rgba(255,145,146,1) 67%);  
   color: white;
   margin-right: 50px;
+  font-family: inherit;
 }
 .actions input:hover {
   background-color: #f99496;
@@ -178,11 +179,47 @@ object-fit: cover;
 }
 /* Termina .description-box */
 
+/* Empieza Comments box */
 .comment-box{
   grid-area: comments;
+  padding: 20px 0 5px 15px;
+  color: #464646;
 
 }
+.comment-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.comment-container input {
+  display: block;
+  padding-left: 40px;
+  padding-right: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 100%;
+  background-image: url(../images/thumb.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+  line-height: 50%;
+  margin-bottom: 20px;
+  font-family: inherit;
+  border-radius: 5px;
+  border-style: solid;
+  color: #757575;
 
-.comment-box{
+}
+.comment-item {
+  display: flex;
+  
+  margin-bottom: 30px;
+}
+.comment-item img {
+  width: 40px;
+}
+
+/* Termina Comments box  */
+
+.suggestions-box{
   grid-area: suggestions;
 }
