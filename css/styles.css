@@ -55,7 +55,7 @@ body {
 .grid-layout {
   display: grid;
   grid-template-columns: 300px 1.2fr .8fr;
-  grid-template-rows: 2fr .5fr 2fr;
+  grid-template-rows: 2fr minmax(auto-fill, 1.5fr) 2fr;
   grid-template-areas:   	"sidebar player player"
      						"sidebar description description"
      						"sidebar comments suggestions" ;
@@ -128,19 +128,26 @@ object-fit: cover;
 /* Empieza .description-box */
 .description-box {
   grid-area: description;
-  padding: 10px 0 10px 20px;
   color: #757575;
   border-bottom-width: 2px;
   border-bottom-color: gray;
   border-bottom-style: solid;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(2, minmax(1fr, 500px));
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  grid-template-areas:  "title title"
+                        "action-buttons  tags";
+}
+.video-info{
+  align-self: center;
+  padding-left: 20px;
+
 }
 .video-title {
   color: var(--black-color);
-}
-.video-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  grid-area: title;
 }
 .actions {
   margin-top: 5px;
@@ -148,6 +155,8 @@ object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  grid-area: action-buttons;
+
 }
 .actions input {
   padding: 10px 15px;
@@ -172,13 +181,19 @@ object-fit: cover;
   margin-right: 50px;
 }
 .keywords {
-  margin-right: 20px;
+  grid-area: tags;
+  margin-right: ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px 0 5px 5px;
 }
 .keywords span {
   border: 1px black solid;
   border-radius: 20px;
   padding: 5px 15px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   background-color: teal;
   color: white;
 }
@@ -234,7 +249,7 @@ object-fit: cover;
   padding: 0 30px 10px 10px;
 }
 .image-container {
-  width: 75%;
+  max-width: 250px;
   height: 150px;
   overflow: hidden;
   border: 1px solid #000033;
