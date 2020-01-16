@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Platzivideo';
-  src:  url('../fonts/Platzivideo.eot?8c98lr');
-  src:  url('../fonts/Platzivideo.eot?8c98lr#iefix') format('embedded-opentype'),
-    url('../fonts/Platzivideo.ttf?8c98lr') format('truetype'),
-    url('../fonts/Platzivideo.woff?8c98lr') format('woff'),
-    url('../fonts/Platzivideo.svg?8c98lr#Platzivideo') format('svg');
+  src:  url('../fonts/Platzivideo.eot?5f6zq0');
+  src:  url('../fonts/Platzivideo.eot?5f6zq0#iefix') format('embedded-opentype'),
+    url('../fonts/Platzivideo.ttf?5f6zq0') format('truetype'),
+    url('../fonts/Platzivideo.woff?5f6zq0') format('woff'),
+    url('../fonts/Platzivideo.svg?5f6zq0#Platzivideo') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -31,6 +31,9 @@
 .icon-download-cloud:before {
   content: "\e901";
 }
+.icon-menu:before {
+  content: "\e903";
+}
 .icon-share-2:before {
   content: "\e902";
 }
@@ -39,6 +42,7 @@
 :root {
   --black-color: #464646;
   --red-color:  rgb(255,0,5);
+  --blue-color: #000033;
 }
 
 body, html, h1, h2, h3, p, figure {
@@ -61,6 +65,12 @@ body {
      						"sidebar comments suggestions" ;
 }
 
+.smart-header {
+  display: none;
+}
+.menu {
+  display: none;
+}
 /* Empieza SideBar */
 .side-bar {
   grid-area: sidebar;
@@ -93,7 +103,9 @@ body {
 }
 .profile-container {
 	border: 1px solid #000033;
-	border-radius: 50%;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 	overflow: hidden;
   margin-right: 10px;
   background-color: black;
@@ -139,11 +151,12 @@ object-fit: cover;
   justify-content: center;
   grid-template-areas:  "title title"
                         "action-buttons  tags";
+  padding-bottom: 5px;
 }
 .video-info{
   align-self: center;
   padding-left: 20px;
-
+  grid-area: title;
 }
 .video-title {
   color: var(--black-color);
@@ -186,16 +199,18 @@ object-fit: cover;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px 0 5px 5px;
+  padding: 0 0 5px 5px;
+  font-size: 12px;
 }
 .keywords span {
   border: 1px black solid;
   border-radius: 20px;
-  padding: 5px 15px;
+  padding: 5px 10px;
   margin-left: 10px;
   margin-bottom: 10px;
   background-color: teal;
   color: white;
+
 }
 /* Termina .description-box */
 
@@ -235,6 +250,11 @@ object-fit: cover;
   
   margin-bottom: 30px;
 }
+.comment-item .profile-container {
+  width: 40px;
+  height: 40px;
+}
+
 .comment-item img {
   width: 40px;
 }
@@ -264,4 +284,186 @@ object-fit: cover;
 }
 .additional-item figure {
   height: 100px;
+}
+
+
+@media screen and (max-width: 1039px) {
+  .description-box {
+    grid-template-areas: "title tags"
+                          "action-buttons tags";
+  }
+  .keywords {
+    align-content: center;
+    justify-content: center;
+  }
+  .actions {
+    justify-content: space-around;
+    /* padding-left: 10px; */
+  }
+  .actions input {
+    margin-right: 10px;
+  }
+  .action-button {
+    margin-right: 10px;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    grid-template-rows: 50px 2fr minmax(auto-fill, 1.5fr) 2fr;
+    grid-template-areas:   	"header header"
+                    "player player"
+                   "description description"
+                   "comments suggestions" ;
+  }
+  .side-bar {
+    display: none;
+  }
+  .video-container {
+    padding-bottom: 56.25%;
+  }
+
+  .smart-header {
+    grid-area: header;
+    display: flex;
+    background-color: var(--blue-color);
+    color: white;
+    align-items: center;
+    padding: 5px 0 5px 25px;
+    /* position: absolute; */
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+
+  }
+  .logo {
+    margin: 0;
+    padding-left: 10px;
+  }
+  .menu {
+    position: fixed;
+    background-color: var(--blue-color);
+    color: white;
+    z-index: 1;
+    padding-top: 60px;
+    padding-left: 10px;
+    left: -260px;
+    width: 250px;
+
+  }
+  .burger-button {
+    height: 24px; 
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .description-box {
+    grid-template-columns: 2fr 1fr;
+
+  }
+  .actions {
+    justify-content: start;
+    padding-left: 20px;
+    font-size: .9em;
+  }
+  .video-title {
+    font-size: 1.2em;
+  }
+  .keywords {
+    align-items: center;
+  }
+  .content-box {
+    font-size: .9em;
+  
+}
+
+@media screen and (max-width: 480px) {
+  .smart-header {
+    height: 40px;
+  }
+  .content-box input {
+    width: 50%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  .comment-item {
+    margin: 20px;
+  }
+  .profile-container {
+    margin: 0px;
+    padding-right: 15px;
+    margin-right: 7px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    grid-template-rows: 50px 2fr minmax(auto-fill, 1.5fr) 2fr 2fr;
+    grid-template-areas:   	"header header"
+                    "player player"
+                   "description description"
+                   "suggestions suggestions"
+                   "comments comments" ;
+  }
+  .description-box {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "title title"
+                          "action-buttons tags";
+    justify-items: start;
+  }
+  .actions {
+    flex-direction: ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 10px ;
+  }
+  .action-button {
+    width: 45px;
+    margin: 0;
+    font-size: 12px;
+  }
+  input.action-button {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .video-info {
+    grid-area: title;
+    width: 300px;
+    padding-top: 5px
+  }
+  .suggest-item a {
+    display: flex;
+    align-items: center;
+  }
+  .suggest-item .image-container {
+    width: 75%;
+    height: 75px;
+    margin: 3px;
+
+  }
+
+  .comment-box {
+    padding-left: 3px;
+    padding-top: 0;
+  }
+  .comment-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .comment-container input {
+    background-position: left;
+    width: 50%%;
+    margin-left: 15px;
+  }
+  .profile-container {
+    padding: 0;
+  }
+
 }
