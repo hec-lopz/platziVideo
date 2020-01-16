@@ -148,7 +148,7 @@ object-fit: cover;
   align-content: center;
   grid-template-columns: repeat(2, minmax(1fr, 500px));
   grid-template-rows: 1fr 1fr;
-  justify-content: center;
+  /* justify-content: center; */
   grid-template-areas:  "title title"
                         "action-buttons  tags";
   padding-bottom: 5px;
@@ -164,10 +164,10 @@ object-fit: cover;
 }
 .actions {
   margin-top: 5px;
-  padding: 5px 0 0 0;
+  padding: 5px 0 0 5px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-items: start;
   grid-area: action-buttons;
 
 }
@@ -182,6 +182,7 @@ object-fit: cover;
   color: white;
   margin-right: 50px;
   font-family: inherit;
+
 }
 .actions input:hover {
   background-color: #f99496;
@@ -198,9 +199,10 @@ object-fit: cover;
   margin-right: ;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: start;
   padding: 0 0 5px 5px;
   font-size: 12px;
+
 }
 .keywords span {
   border: 1px black solid;
